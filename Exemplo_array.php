@@ -9,9 +9,9 @@
     <?php
         $dias = array('domingo','segunda','terça','quarta','quinta','sexta','sabado');
         echo $dias[1]."<br/>";
-        print_r($dias);
+        print_r($dias); //imprime o valor e o índice do array
         echo "<br/>";
-        var_dump($dias);
+        var_dump($dias); //imprime o valor, indice, tipo da variavel e quantidade de caracters.
     ?>
 </body>
 </html>

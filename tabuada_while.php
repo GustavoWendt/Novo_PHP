@@ -7,9 +7,9 @@
 </head>
 <body>
     <?php
-    $numero=1;
+    $numero=1; //multiplicador
     while ($numero <=10){
-        $i=1;
+        $i=1; //número a ser multiplicado
         while ($i <=10){
             echo "$numero x $i = ",$numero * $i, "<br><br>";
             $i++;
