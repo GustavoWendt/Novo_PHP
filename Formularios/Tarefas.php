@@ -12,7 +12,6 @@
 
     <form>
         <fieldset>
-            <legend>Nova tarefa</legend>
             <label> Tarefa:
                 <input type="text" name="nome" />
             </label>
