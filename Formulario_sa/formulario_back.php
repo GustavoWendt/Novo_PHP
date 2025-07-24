@@ -1,12 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funcionário</title>
+    <style>
+        body {
+            background-color: #f0f4f8;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+        table {
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px 15px;
+        }
+        th {
+            background-color: #007BFF;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
 <?php
 session_start();
 
-
-if (!isset($_SESSION['informacoes'])) {
-    $_SESSION['informacoes'] = array();
-}
+//ionario'] = array();
 
 
+// Verifica se todos os campos foram enviados via GET
 if (
     isset($_GET['nome2']) && isset($_GET['RGeCPF2']) && isset($_GET['telefone2']) &&
     isset($_GET['usuario2']) && isset($_GET['data2']) && isset($_GET['permissao2']) &&
@@ -14,10 +45,10 @@ if (
     isset($_GET['cargo2']) && isset($_GET['email2']) && isset($_GET['senha2']) &&
     isset($_GET['cidade2']) && isset($_GET['cep2'])
 ) {
-
-    $dados = array(
+    // Cria array associativo com os dados
+    $funcionario = array(
         'nome' => $_GET['nome2'],
-        'rg_cpf' => $_GET['RGeCPF2'],
+        'cpf' => $_GET['RGeCPF2'],
         'telefone' => $_GET['telefone2'],
         'usuario' => $_GET['usuario2'],
         'data' => $_GET['data2'],
@@ -27,79 +58,29 @@ if (
         'estado' => $_GET['estado2'],
         'cargo' => $_GET['cargo2'],
         'email' => $_GET['email2'],
-        'senha' => $_GET['senha2'], 
+        'senha' => $_GET['senha2'],
         'cidade' => $_GET['cidade2'],
-        'cep' => $_GET['cep2'],
+        'cep' => $_GET['cep2']
     );
 
-    $_SESSION['informacoes'][] = $dados;
+    // Salva na sessão
+    $_SESSION['funcionario'][] = $funcionario;
 }
 
-$informacoes = $_SESSION['informacoes'];
-?>
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <title>Informações Salvas</title>
-    <style>
-        body {
-            background-color: #f0f4f8;
-            padding: 40px;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            min-height: 100vh;
-        }
-        table, th, td {
-            border: 1px solid black;
-            border-collapse: collapse;
-            padding: 10px;
-        }
-    </style>
-</head>
-<body>
+// Exibe os dados da sessão
+if (!empty($_SESSION['funcionario'])) {
+    echo "<table>";
+    echo "<tr><th>Campo</th><th>Valor</th></tr>";
 
-    <table>
-        <thead>
-            <tr>
-                <th>Nome</th>
-                <th>RG/CPF</th>
-                <th>Telefone</th>
-                <th>Usuário</th>
-                <th>Data</th>
-                <th>Permissão</th>
-                <th>Rua</th>
-                <th>Bairro</th>
-                <th>Estado</th>
-                <th>Cargo</th>
-                <th>Email</th>
-                <th>Senha</th>
-                <th>Cidade</th>
-                <th>CEP</th>
-            </tr>
-        </thead>
-        <tbody>
-        <?php foreach ($informacoes as $info) : ?>
-            <tr>
-                <td><?= htmlspecialchars($info['nome']) ?></td>
-                <td><?= htmlspecialchars($info['rg_cpf']) ?></td>
-                <td><?= htmlspecialchars($info['telefone']) ?></td>
-                <td><?= htmlspecialchars($info['usuario']) ?></td>
-                <td><?= htmlspecialchars($info['data']) ?></td>
-                <td><?= htmlspecialchars($info['permissao']) ?></td>
-                <td><?= htmlspecialchars($info['rua']) ?></td>
-                <td><?= htmlspecialchars($info['bairro']) ?></td>
-                <td><?= htmlspecialchars($info['estado']) ?></td>
-                <td><?= htmlspecialchars($info['cargo']) ?></td>
-                <td><?= htmlspecialchars($info['email']) ?></td>
-                <td><?= htmlspecialchars($info['senha']) ?></td>
-                <td><?= htmlspecialchars($info['cidade']) ?></td>
-                <td><?= htmlspecialchars($info['cep']) ?></td>
-            </tr>
-        <?php endforeach; ?>
-        </tbody>
-    </table>
+    // Exibe o último funcionário adicionado
+    $ultimo = end($_SESSION['funcionario']);
+    foreach ($ultimo as $campo => $valor) {
+        echo "<tr><td>" . htmlspecialchars($campo) . "</td><td>" . htmlspecialchars($valor) . "</td></tr>";
+    }
+
+    echo "</table>";
+}
+?>
 
 </body>
 </html>
