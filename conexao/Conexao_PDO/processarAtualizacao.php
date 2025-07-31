@@ -1,5 +1,5 @@
 <?php
-required 'conexao.php'
+require 'Conexao.php';
 
 if ($_SERVER["REQUEST_METHOD"]=="POST") {
     $conexao = conectarBanco();
@@ -8,13 +8,13 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
     $nome = htmlspecialchars(trim($_POST["nome"]));
     $endereco = htmlspecialchars(trim($_POST["endereco"]));
     $telefone = htmlspecialchars(trim($_POST["telefone"]));
-    $email = filter_var($_POST["email"],FILTER_VALIDADE_EMAIL);
+    $email = filter_var($_POST["email"], FILTER_VALIDATE_EMAIL);
 
     if (!$id || !$email) {
         die("Erro: ID inválido ou email incoreto.");
     }
 
-    $sql = "UPDADE cliente SET nome = :nome, endereco = :endereco, telefone = :telefone, email = :email WHERE id_cliente = :id";
+    $sql = "UPDATE cliente2 SET nome = :nome, endereco = :endereco, telefone = :telefone, email = :email WHERE id_cliente = :id";
 
     $stmt = $conexao->prepare($sql);
     $stmt->bindParam(":id", $id, PDO::PARAM_INT);
@@ -31,3 +31,4 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
         echo "Erro ao atualizar registro.";
      }
     }
+?>

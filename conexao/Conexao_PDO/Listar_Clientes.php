@@ -2,7 +2,7 @@
     require 'Conexao.php';
 
     $conexao = conectarBanco();
-    $stmt = $conexao->prepare("SELECT * FROM cliente");
+    $stmt = $conexao->prepare("SELECT * FROM cliente2");
     $stmt->execute();
     $clientes = $stmt->fetchAll();
 ?>
