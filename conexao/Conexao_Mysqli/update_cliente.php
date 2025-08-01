@@ -14,7 +14,7 @@ $conexao = conectadb();
  //Define o id do usuário
  $id_cliente = 7;
 
- $stmt=$conexao->prepare("UPDATE cliente2 SET nome=?, endereco = ?, telefone = ?, email = ? WHERE id_cliente = ?");
+ $stmt=$conexao->prepare("UPDATE cliente SET nome=?, endereco = ?, telefone = ?, email = ? WHERE id_cliente = ?");
 
  $stmt->bind_param("ssssi", $nome,$endereco,$telefone,$email, $id_cliente);
 

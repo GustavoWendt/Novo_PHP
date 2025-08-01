@@ -11,7 +11,7 @@ require_once "conexao.php";
  $email = "loiroDoTchan@gmail.com";
 
  //Prepara a consulta SQL usando 'prepare()' para evitar SQL Injection
- $stmt = $conexao-> prepare("INSERT INTO cliente2(nome, endereco, telefone, email) VALUES (?,?,?,?)");
+ $stmt = $conexao-> prepare("INSERT INTO cliente(nome, endereco, telefone, email) VALUES (?,?,?,?)");
  $stmt->bind_param("ssss", $nome, $endereco, $telefone, $email);
 
  if ($stmt->execute()){

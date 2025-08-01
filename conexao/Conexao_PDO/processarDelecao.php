@@ -9,7 +9,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     if(!$id){
         die("Erro: ID inválido");
     }
-    $sql= "DELETE FROM cliente2 WHERE id_cliente = :id";
+    $sql= "DELETE FROM cliente WHERE id_cliente = :id";
     $stmt=$conexao->prepare($sql);
     $stmt->bindParam(":id", $id, PDO::PARAM_INT);
 

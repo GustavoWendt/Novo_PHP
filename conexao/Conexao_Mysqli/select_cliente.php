@@ -5,7 +5,7 @@ require_once "conexao.php";
  $conexao = conectadb();
 
  //Define a consulta SQL para buscar clientes
- $sql = "SELECT id_cliente, nome, email FROM cliente2";
+ $sql = "SELECT id_cliente, nome, email FROM cliente";
 
  //Executa a consulta nop banco
  $result = $conexao->query($sql);
