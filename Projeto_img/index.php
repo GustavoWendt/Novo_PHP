@@ -22,7 +22,7 @@ if (!$resultado){
 </head>
 <body>
     <h2>Selecione um novo arquivo de imagem</h2>
-    <form enctype="multipart/form-data" action="uploud.php" method="POST">
+    <form enctype="multipart/form-data" action="upload.php" method="POST">
         <input type="hidden" name="MAX_FILE_SIZE" value="999999999"/>
         <input type="text" name="evento" placeholder="Nome do Evento"/>
         <input type="text" name="descricao" placeholder="Descrição do Evento"/>
