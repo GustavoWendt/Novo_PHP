@@ -17,7 +17,7 @@ mysqli_set_charset($conn, "utf8mb4");
 echo "Conexão bem-sucedida! </br>";
 
 //consulta SQL para obter clientes
-$sql = "SELECT id_cliente, nome, email FROM cliente2";
+$sql = "SELECT id_cliente, nome, email FROM cliente";
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result)>0){

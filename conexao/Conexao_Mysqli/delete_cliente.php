@@ -7,7 +7,7 @@ $conexao = conectadb();
  //Define o id do usuário
  $id_cliente = 7;
 
- $stmt=$conexao->prepare("DELETE FROM cliente2 WHERE id_cliente = ?");
+ $stmt=$conexao->prepare("DELETE FROM cliente WHERE id_cliente = ?");
 //Associa o parâmetro com o valor da consulta
  $stmt->bind_param("i",$id_cliente);
 
