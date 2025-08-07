@@ -50,6 +50,57 @@ function redimensionarImagem($imagem,$largura,$altura){
 
     try{
         //CONEXÃO COM O BANCO USANDO PDO
-        $pdo = new PDO("mysql:host=$host;dbname:$dbname",$username,)
+        $pdo = new PDO("mysql:host=$host;dbname:$dbname",$username, $password);
+        $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+
+        if($_SERVER['REQUEST_METHOD']=='POST'&&isset($_FILES['foto'])){
+
+            if($_FILES['foto']['error'] == 0){
+                $nome = $_POST['nome'];
+                $telefone = $_POST['telefone'];
+                $nomeFoto = $_FILES['foto']['name']; //PEGA O NOME ORIGINAL DO ARQUIVO
+                $tipoFoto = $_FILES['foto']['type']; //PEGA O TIPO mime DA IMAGEM
+                
+            //REDIMENSIONA A IMAGEM
+            // O  CÓDIGO ABAIXO CUJA VARIAVEL É TMP_NAME É O CAMINHO TEMPORARIO DO ARQUIVO
+
+            $foto = redimensionarImagem($_FILES['foto']['tmp_name'],300,400);
+
+            // INSERE NO BANCO DE DADOS USANDO 'sql' PREPARED
+
+            $sql = "INSERT INTO funcionarios (nome,telefone,nome_foto,tipo_foto,foto)
+            VALUES(:nome,:telefone,:nome_foto,:tipo_foto,:foto)";
+            $stmt = $pdo->prepare($sql); //RESPONSAVEL POR PREPARAR A QUERY PARA EVITAR ATAQUE SQL INJECTION
+            $stmt->bindParam(':nome',$nome);//LIGA OS PARAMETROS ÁS VARIAVEIS
+            $stmt->bindParam(':telefone',$telefone);//LIGA OS PARAMETROS ÁS VARIAVEIS
+            $stmt->bindParam(':nome_foto',$nomeFoto);//LIGA OS PARAMETROS ÁS VARIAVEIS
+            $stmt->bindParam(':foto',$foto,PDO::PARAM_LOB);//O LOB É IGUAL  Large OBject USADO PARA DADOS BINARIOS COMO IMAGENS
+
+            if($stmt->execute()){
+                echo "funcionario cadastrado com sucesso!";
+            } else {
+                echo "Erro ao cadastrar o funcionario!";
+            }
+            
+            }else {
+                echo "Erro ao fazer upload da foto! Código: " . $_FILES['foto']['error'];
+            }
+        }
+    } catch(PDOException $e){
+        echo "Erro. ".$e->getMessage(); 
     }
 ?>
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de imagens</title>
+</head>
+<body>
+    <h1>Lista de imagens</h1>
+
+    <a href="consulta_funcionario.php">Listar funcionarios</a>
+</body>
+</html>
