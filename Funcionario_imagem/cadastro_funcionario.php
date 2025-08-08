@@ -16,10 +16,6 @@
             <input type="text" name="nome" id="nome" required>
             <br>
 
-            <label for="name">Nome: </label><br>
-            <input type="text" name="nome" id="nome" required>
-            <br>
-
             <label for="telefone">Telefone: </label><br>
             <input type="text" name="telefone" id="telefone" required>
             <br>
@@ -30,5 +26,6 @@
             
             <button type="submit">Cadastrar</button><br>
         </form>
+    </div>
 </body>
 </html>
