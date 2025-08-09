@@ -77,11 +77,12 @@ function redimensionarImagem($imagem,$largura,$altura){
             $stmt->bindParam(':tipo_foto',$tipoFoto);//LIGA OS PARAMETROS ÁS VARIAVEIS
             $stmt->bindParam(':foto',$foto,PDO::PARAM_LOB);//O LOB É IGUAL  Large OBject USADO PARA DADOS BINARIOS COMO IMAGENS
 
-            if($stmt->execute()){
-                echo "funcionario cadastrado com sucesso!";
+            if ($stmt->execute()) {
+                echo "<script>alert('Funcionário cadastrado com sucesso!'); window.location.href='index.php';</script>";
             } else {
-                echo "Erro ao cadastrar o funcionario!";
+                echo "<script>alert('Erro ao cadastrar funcionário!'); window.location.href='cadastro.php';</script>";
             }
+            
             
             }else {
                 echo "Erro ao fazer upload da foto! Código: " . $_FILES['foto']['error'];
@@ -91,17 +92,3 @@ function redimensionarImagem($imagem,$largura,$altura){
         echo "Erro. ".$e->getMessage(); 
     }
 ?>
-
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de imagens</title>
-</head>
-<body>
-    <h1>Voltar ao menu principal</h1>
-
-    <a href="index.php">Listar funcionarios</
-</body>
-</html>
