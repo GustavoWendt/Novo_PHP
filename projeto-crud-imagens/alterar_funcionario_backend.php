@@ -1,7 +1,7 @@
 <?php
 // Conexão PDO
 $host = "localhost";
-$dbname = "armazena_imagem";
+$dbname = "empresa";
 $username = "root";
 $password = "";
 
@@ -14,13 +14,13 @@ try {
 
         // Se for número, busca pelo ID
         if (is_numeric($busca)) {
-            $sql = "SELECT id, nome, telefone, nome_foto, tipo_foto, foto FROM funcionarios WHERE id = :busca";
+            $sql = "SELECT id, nome, telefone, cargo, nome_foto, tipo_foto, foto FROM funcionarios WHERE id = :busca";
             $stmt = $pdo->prepare($sql);
             $stmt->bindParam(":busca", $busca, PDO::PARAM_INT);
         } 
         // Caso contrário, busca pelo nome (parcial)
         else {
-            $sql = "SELECT id, nome, telefone, nome_foto, tipo_foto, foto FROM funcionarios WHERE nome LIKE :busca";
+            $sql = "SELECT id, nome, telefone, cargo, nome_foto, tipo_foto, foto FROM funcionarios WHERE nome LIKE :busca";
             $stmt = $pdo->prepare($sql);
             $like = "%$busca%";
             $stmt->bindParam(":busca", $like, PDO::PARAM_STR);
@@ -58,6 +58,9 @@ try {
 
         <label for="telefone">Telefone:</label>
         <input type="text" id="telefone" name="telefone" value="<?= htmlspecialchars($row['telefone']) ?>" readonly onclick="habilitarEdicao('telefone')" />
+
+        <label for="cargo">Cargo:</label>
+        <input type="text" id="cargo" name="cargo" value="<?= htmlspecialchars($row['cargo']) ?>" readonly onclick="habilitarEdicao('cargo')" />
 
         <label for="foto">Foto:</label><br>
         <img src="data:<?= htmlspecialchars($row['tipo_foto']); ?>;base64,<?= $imagemBase64 ?>" alt="Foto do funcionário" width="150" /><br>

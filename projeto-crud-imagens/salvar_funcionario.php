@@ -44,8 +44,8 @@ function redimensionarImagem($imagem,$largura,$altura){
 
     //CONFIGURAÇÃO DO BANCO DE DADOS
     $host= "localhost";
-    $dbname = 'armazena_imagem';
-    $username = 'root';
+    $dbname = 'empresa';
+    $username = "root";
     $password = "";
 
     try{
@@ -58,6 +58,7 @@ function redimensionarImagem($imagem,$largura,$altura){
             if($_FILES['foto']['error'] == 0){
                 $nome = $_POST['nome'];
                 $telefone = $_POST['telefone'];
+                $cargo = $_POST['cargo'];
                 $nomeFoto = $_FILES['foto']['name']; //PEGA O NOME ORIGINAL DO ARQUIVO
                 $tipoFoto = $_FILES['foto']['type']; //PEGA O TIPO mime DA IMAGEM
                 
@@ -68,11 +69,12 @@ function redimensionarImagem($imagem,$largura,$altura){
 
             // INSERE NO BANCO DE DADOS USANDO 'sql' PREPARED
 
-            $sql = "INSERT INTO funcionarios (nome,telefone,nome_foto,tipo_foto,foto)
-            VALUES(:nome,:telefone,:nome_foto,:tipo_foto,:foto)";
+            $sql = "INSERT INTO funcionarios (nome,telefone,cargo,nome_foto,tipo_foto,foto)
+            VALUES(:nome,:telefone,:cargo,:nome_foto,:tipo_foto,:foto)";
             $stmt = $pdo->prepare($sql); //RESPONSAVEL POR PREPARAR A QUERY PARA EVITAR ATAQUE SQL INJECTION
             $stmt->bindParam(':nome',$nome);//LIGA OS PARAMETROS ÁS VARIAVEIS
             $stmt->bindParam(':telefone',$telefone);//LIGA OS PARAMETROS ÁS VARIAVEIS
+            $stmt->bindParam(':cargo',$cargo);
             $stmt->bindParam(':nome_foto',$nomeFoto);//LIGA OS PARAMETROS ÁS VARIAVEIS
             $stmt->bindParam(':tipo_foto',$tipoFoto);//LIGA OS PARAMETROS ÁS VARIAVEIS
             $stmt->bindParam(':foto',$foto,PDO::PARAM_LOB);//O LOB É IGUAL  Large OBject USADO PARA DADOS BINARIOS COMO IMAGENS

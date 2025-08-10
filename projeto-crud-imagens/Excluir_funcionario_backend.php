@@ -1,7 +1,7 @@
 <?php
 // Conexão PDO
 $host = "localhost";
-$dbname = "armazena_imagem";
+$dbname = "empresa";
 $username = "root";
 $password = "";
 

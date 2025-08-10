@@ -39,13 +39,6 @@
                 <a href=Alterar_funcionario.php>Alterar Cliente</a>
             </div>
         </li>
-
-                <li class="dropdow">
-            <a href="javascript:void(0)" class="dropbtn">Listar funcionarios</a>
-            <div class="dropdow-content">
-                <a href=consulta_funcionario.php>Listar funcionarios</a>
-            </div>
-        </li>
     </ul>
 </body>
 </html>

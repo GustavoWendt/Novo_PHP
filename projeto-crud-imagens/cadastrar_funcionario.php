@@ -20,6 +20,10 @@
             <input type="text" name="telefone" id="telefone" required>
             <br>
 
+            <label for="cargo">Cargo: </label><br>
+            <input type="text" name="cargo" id="cargo" required>
+            <br>
+
             <label for="foto">Foto: </label><br>
             <input type="file" name="foto" id="foto" required><br>
             <br>
