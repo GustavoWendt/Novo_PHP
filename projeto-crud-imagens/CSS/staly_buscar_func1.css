@@ -1,0 +1,194 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Fundo com gradiente */
+body {
+  background: linear-gradient(135deg, #1e272e, #0984e3);
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Menu de navegação */
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0 30px;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  height: 70px;
+}
+
+li {
+  position: relative;
+  margin-right: 25px;
+}
+
+li a, .dropbtn {
+  display: block;
+  color: #fff;
+  text-align: center;
+  padding: 14px 18px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+}
+
+.logo-item {
+  margin-right: auto;
+}
+
+.logo-item img {
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
+li a:hover, .dropbtn:hover {
+  background-color: #00cec9;
+  color: #1e272e;
+}
+
+.dropdow-content {
+  display: none;
+  position: absolute;
+  background-color: rgba(30, 39, 46, 0.95);
+  min-width: 180px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+  z-index: 100;
+  border-radius: 8px;
+  overflow: hidden;
+  top: 100%;
+  left: 0;
+}
+
+.dropdow-content a {
+  color: white;
+  padding: 10px 15px;
+  text-decoration: none;
+  display: block;
+  transition: background 0.3s ease;
+  font-weight: 600;
+}
+
+.dropdow-content a:hover {
+  background-color: #00cec9;
+  color: #1e272e;
+}
+
+.dropdow:hover .dropdow-content {
+  display: block;
+}
+
+/* Container */
+.container {
+  background: rgba(30, 39, 46, 0.9);
+  padding: 30px 40px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+  max-width: 380px;
+  margin: 50px auto;
+  text-align: center;
+}
+
+/* Títulos */
+.container h1, .container h2 {
+  color: #d1d8e0;
+  font-weight: 700;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+
+.container h1 {
+  font-size: 2.2rem;
+}
+
+.container h2 {
+  font-size: 1.6rem;
+  margin-bottom: 25px;
+}
+
+/* Formulário */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: left;
+}
+
+/* Labels */
+form label {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #a4b0be;
+}
+
+/* Input de texto */
+form input[type="text"] {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 2px solid #0984e3;
+  background-color: #1e272e;
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  font-family: inherit;
+}
+
+form input[type="text"]::placeholder {
+  color: #57606f;
+}
+
+form input[type="text"]:focus {
+  border-color: #00cec9;
+  box-shadow: 0 0 8px #00cec9;
+  background-color: #273c52;
+  color: #fff;
+}
+
+/* Botão */
+form button {
+  background-color: #00cec9;
+  color: #1e272e;
+  font-weight: 700;
+  font-size: 1.1rem;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: inherit;
+  user-select: none;
+}
+
+form button:hover {
+  background-color: #0984e3;
+  color: #fff;
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+  .container {
+    width: 90%;
+    padding: 25px 20px;
+    margin: 30px auto;
+  }
+  
+  ul {
+    flex-wrap: wrap;
+    padding: 0 15px;
+    height: auto;
+  }
+  
+  li {
+    margin-right: 10px;
+  }
+}

@@ -1,0 +1,198 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Fundo com gradiente */
+body {
+    background: linear-gradient(135deg, #2c0b0e, #e74c3c);
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Menu de navegação */
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0 30px;
+    background-color: rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    height: 70px;
+}
+
+/* Itens do menu */
+li {
+    position: relative;
+    margin-right: 25px;
+}
+
+li a, .dropbtn {
+    display: block;
+    color: #fff;
+    text-align: center;
+    padding: 14px 18px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+}
+
+/* Logo */
+.logo-item {
+    margin-right: auto;
+}
+
+.logo-item img {
+    border-radius: 50%;
+    border: 2px solid #fff;
+}
+
+/* Hover dos links do menu */
+li a:hover, .dropbtn:hover {
+    background-color: #ff7675;
+    color: #2c0b0e;
+}
+
+/* Conteúdo dropdown */
+.dropdow-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(44, 11, 14, 0.95);
+    min-width: 180px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    z-index: 100;
+    border-radius: 8px;
+    overflow: hidden;
+    top: 100%;
+    left: 0;
+}
+
+/* Links dentro do dropdown */
+.dropdow-content a {
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+    transition: background 0.3s ease;
+    font-weight: 600;
+}
+
+.dropdow-content a:hover {
+    background-color: #ff7675;
+    color: #2c0b0e;
+}
+
+/* Mostrar dropdown ao hover */
+.dropdow:hover .dropdow-content {
+    display: block;
+}
+
+/* Container do formulário */
+.container {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 30px 40px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    width: 350px;
+    margin: 40px auto;
+}
+
+/* Títulos */
+h1, h2 {
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #ff7675;
+    margin-bottom: 5px;
+}
+
+h2 {
+    font-size: 1.5rem;
+    color: #ffeaa7;
+    margin-bottom: 20px;
+}
+
+/* Formulário */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: left;
+}
+
+/* Labels */
+label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #ffeaa7;
+}
+
+/* Campo de texto */
+input[type="text"],
+input[type="file"] {
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+}
+
+input[type="text"]::placeholder {
+    color: #ffdede;
+}
+
+input[type="text"]:focus,
+input[type="file"]:focus {
+    background: rgba(255, 255, 255, 0.9);
+    color: #2c0b0e;
+}
+
+/* Botão */
+button {
+    padding: 12px;
+    background: #e74c3c;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+button:hover {
+    background: #c0392b;
+}
+
+/* Responsividade */
+@media screen and (max-width: 480px) {
+    .container {
+        width: 90%;
+        padding: 25px 20px;
+    }
+
+    ul {
+        flex-wrap: wrap;
+        padding: 0 15px;
+        height: auto;
+    }
+
+    li {
+        margin-right: 10px;
+    }
+}

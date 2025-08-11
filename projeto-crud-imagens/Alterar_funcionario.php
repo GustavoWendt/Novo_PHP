@@ -4,9 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro funcionario</title>
-    <link rel="stylesheet" href="CSS/staly_alterar_func.css">
+    <link rel="stylesheet" href="CSS/staly.css">
+    <link rel="stylesheet" type="text/css" href="CSS/staly_1alterar_func.css">
 </head>
 <body>
+    <ul>
+
+        <li class="dropdow logo-item">
+            <img src="LogoForneInjet.png" alt="Logo Fornjet" height="60" width="60">
+        </li>
+        <li class="dropdow">
+            <a href="javascript:void(0)" class="dropbtn">Voltar ao menu</a>
+            <div class="dropdow-content">
+                <a href=index.php>Voltar ao menu</a>
+            </div>
+        </li>
+        <li class="dropdow">
+            <a href="javascript:void(0)" class="dropbtn">Cadastrar</a>
+            <div class="dropdow-content">
+                <a href=cadastrar_funcionario.php>Cadastrar cliente</a>
+            </div>
+        </li>
+
+        <li class="dropdow">
+            <a href="javascript:void(0)" class="dropbtn">Pesquisar</a>
+            <div class="dropdow-content">
+                <a href=buscar_funcionario.php>Pesquisar cliente</a>
+            </div>
+        </li>
+        
+        <li class="dropdow">
+            <a href="javascript:void(0)" class="dropbtn">Excluir</a>
+            <div class="dropdow-content">
+                <a href=Excluir_funcionario.php>Excluir funcionario</a>
+            </div>
+        </li>
+
+
+    </ul>
     <div class="container">
         <h1>Alterar</h1>
         <h2>funcionario</h2>
