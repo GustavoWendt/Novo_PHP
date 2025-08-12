@@ -102,6 +102,6 @@ function redimensionarImagem($imagem,$largura,$altura){
 <body>
     <h1>Voltar ao menu principal</h1>
 
-    <a href="index.php">Listar funcionarios</
+    <a href="visualizar_funcionario.php">Listar funcionarios</
 </body>
 </html>

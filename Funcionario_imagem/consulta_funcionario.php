@@ -49,12 +49,12 @@ if($_SERVER["REQUEST_METHOD"]=="POST" && isset($_POST['excluir_id'])){
         <?php foreach($funcionarios as $funcionario):?>
             <li>
                 <!--CÓDIGO ABAIXO PARA VISUALIZAR AS INFORMAÇÕES DOS FUNCIONARIOS-->
-                <a href="visualizar_funcionario.php?id=<?$funcionario['id']?>">
+                <a href="visualizar_funcionario.php?id=<?=$funcionario['id']?>">
                     <?=htmlspecialchars($funcionario['nome'])?>
                 </a>
                 <!--FORMULARIO PARA EXCLUIR FUNCIONARIO -->
                 <form method="POST" style="display:inline;">
-                    <input type="hidden" name="excluir_id" value="<?=$funcionario['id']?>">
+                    <input type="hidden" name="excluir_id" value=<?=$funcionario['id']?>>
                     <button type="submit">Excluir</button>
                 </form>
             </li>

@@ -4,7 +4,7 @@
     $username = 'root';
     $password = "";
 
-    try{
+    try {
         //CONEXÃO COM O BANCO USANDO PDO
         $pdo = new PDO("mysql:host=$host;dbname=$dbname",$username, $password);
         $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
@@ -12,14 +12,14 @@
             $id = $_GET['id'];
 
             $sql = "SELECT nome, telefone, tipo_foto, foto FROM funcionarios WHERE id= :id";
-            $stmt = $pdo->prepare($sql);
-            $stmt = bindParam(':id',$id, PDO::param_int);
+            $stmt= $pdo->prepare($sql);
+            $stmt-> bindparam(':id',$id, PDO::PARAM_INT);
             $stmt->execute();
 
             if($stmt->rowCount()>0){
-                $funcionario = $stmt(PDO::FETCH_ASSOC);
+                $funcionario = $stmt->fetch(PDO::FETCH_ASSOC);
 
-                if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['ecluir_id'])){
+                if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['excluir_id'])){
                     
                     $excluir_id = $_POST['excluir_id'];
 
@@ -46,12 +46,27 @@
 <body>
     <h1>Dados dos Funcionarios</h1>
     <p>Nome:<?=htmlspecialchars($funcionario['nome'])?></p>
+    <p>Telefone:<?=htmlspecialchars($funcionario['telefone'])?></p>
+    <p>Foto:</p>
+    <img src="data:<?=$funcionario['tipo_foto']?>;base64,<?=base64_encode($funcionario['foto'])?>" alt="Foto do funcionario">
+
+    <form method="POST">
+        <input type="hidden" name="excluir_id" value="<?=$id?>">
+    
+        <button type="submit">Excluir funcionario</button>
+    
     
 </body>
 </html>
 
-<?php             
+<?php    
+            } else {
+                echo "Funcionario não cadastrado";
+            }         
+            }else{
+                echo "ID do funcionario não foi fornecido.";
             }
+        }catch(PDOException $e){
+            echo "Erro!";
         }
-    } 
 ?>
