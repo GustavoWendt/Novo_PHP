@@ -22,7 +22,7 @@
         <li class="dropdow">
             <a href="javascript:void(0)" class="dropbtn">Pesquisar</a>
             <div class="dropdow-content">
-                <a href=pesquisarCliente.php>Pesquisar cliente</a>
+                <a id="botaoAvancar" href=pesquisarCliente.php>Pesquisar cliente</a>
             </div>
         </li>
 

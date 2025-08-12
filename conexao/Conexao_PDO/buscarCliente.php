@@ -4,7 +4,7 @@ require_once 'conexao.php';
 $conexao = conectarBanco();
 
 // Consulta todos os clientes do banco, ordenado por nome
-$sql = "SELECT id_cliente, nome, endereco, telefone, email FROM cliente ORDER BY nome ASC";
+$sql = "SELECT id_cliente, nome, endereco, telefone, email FROM cliente2 ORDER BY nome ASC";
 $stmt = $conexao->prepare($sql);
 $stmt->execute();
 $clientes = $stmt->fetchAll();

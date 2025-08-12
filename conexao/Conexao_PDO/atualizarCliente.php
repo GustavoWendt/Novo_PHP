@@ -8,7 +8,7 @@ $cliente = null;
 $msgErro = "";
 
 function buscarClientePorId($idCliente, $conexao) {
-    $stmt = $conexao->prepare("SELECT id_cliente, nome, endereco, telefone, email FROM cliente1 WHERE id_cliente = :id");
+    $stmt = $conexao->prepare("SELECT id_cliente, nome, endereco, telefone, email FROM cliente2 WHERE id_cliente = :id");
     $stmt->bindParam(":id", $idCliente, PDO::PARAM_INT);
     $stmt->execute();
     return $stmt->fetch(PDO::FETCH_ASSOC);
