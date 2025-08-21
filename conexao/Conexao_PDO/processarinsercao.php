@@ -4,7 +4,7 @@ require_once 'Conexao.php';
 if ($_SERVER["REQUEST_METHOD"]=="POST") {
     $conexao = conectarBanco();
 
-    $sql = "INSERT INTO cliente2 (nome, endereco, telefone, email)
+    $sql = "INSERT INTO cliente (nome, endereco, telefone, email)
     VALUES (:nome,:endereco,:telefone,:email)";
 
 

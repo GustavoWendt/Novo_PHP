@@ -15,19 +15,20 @@ try:
 
     # Espera o campo 'nome' estar presente e visível antes de preencher
     campo_nome = wait.until(EC.visibility_of_element_located((By.ID, "nome")))
-    campo_nome.send_keys("João Pedro Carlitys")
+    campo_nome.send_keys("James Tiberius Kirk")
 
     campo_cargo = wait.until(EC.visibility_of_element_located((By.ID, "endereco")))
-    campo_cargo.send_keys("Rua da rua da casa de alguem")
+    campo_cargo.send_keys("Ponte de comando da Enterprise")
 
     campo_telefone = wait.until(EC.visibility_of_element_located((By.ID, "telefone")))
-    campo_telefone.send_keys("11999999999")
+    campo_telefone.send_keys("47998968839")
     
     campo_endereco = wait.until(EC.visibility_of_element_located((By.ID, "email")))
-    campo_endereco.send_keys("pipocay01@gmail.com")
+    campo_endereco.send_keys("KirkzinhoReiDasAlieisn01@gmail.com")
 
 
     url_antes = driver.current_url
+    
 
     botao_cadastrar = wait.until(EC.element_to_be_clickable((By.TAG_NAME, "button")))
     botao_cadastrar.click()
